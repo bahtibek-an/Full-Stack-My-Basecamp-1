@@ -1,0 +1,43 @@
+.form-wrape{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+}
+.form-wrape form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.err{
+    color: red ;
+}
+
+.form-wrape form input {
+    width: 300px;
+    padding: 7px;
+    border-radius: 7px;
+    outline: none;
+}
+
+
+.form-wrape form input:focus {
+    border: 2px solid rgb(19, 150, 250);
+    transition: 0.3s;
+}
+/* .form-wrape button {
+    width: 200px;
+    padding: 5px;
+    border-radius: 7px;
+    outline: none;
+    background-color: rgb(19, 150, 250);
+    border: none;
+} */
+
+.form-wrape button:active{
+    background-color: rgba(19, 150, 250, 0.764);
+}

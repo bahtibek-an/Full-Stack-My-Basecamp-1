@@ -1,33 +1,38 @@
-# Full-Stack My Basecamp 1
-## MyBasecamp1
-What is basecamp?
-It's a web-based project management tool launched in 2004. Its primary features are to-do lists, milestone management, forum-like messaging, file sharing, and time tracking - [basecamp](https://basecamp.com/)
+# Welcome to My Basecamp 1
+Basecamp is a web application for project management, providing convenient tools for teamwork, message exchange, and task management.
+Link ----> https://visionary-brigadeiros-b964c0.netlify.app/
+## Task
+The primary goal of Basecamp is to provide a user-friendly web application for effective project management, fostering collaboration among team members. The challenges faced in developing Basecamp include:
+## Description
+Basecamp is designed to facilitate collaborative work in teams. It offers the following features:
+- **Project Creation:** Easily create projects to organize work effectively.
+- **Participant Management:** Add and remove participants, manage access rights.
+## Installation
+1. Clone the Repository:
+    ```bash
+    git clone server: https://github.com/behruzchick/basecamp-backend/
+    git clone client: https://github.com/behruzchick/basecamp-frontend/
+    cd basecamp
+    ```
+2. Install Dependencies:
+    ```bash
+    npm start
+    ```
 
-You will have a to create a website which mimique features from the original tools. It means having a database, a backend and a frontend.
-This project is splitted in 3 parts.
-
-We want our users to create their accounts, to connect and create projects!
-
-As developer you need to think about the User Experience and it needs to be great.
-
-Here is the technical specifications:
-
-First step of MyBaseCamp should have the following features:
-
-### Features:
-
-1. User Registration - User #new - User #show - User #create - User #destroy
-In summary, you should be able to create a new user, delete a user, and as a new user, create an account yourself.
-
-2. Session - User #sign_in - User #sign_out
-Users should be able to log in and log out.
-
-3. Role Permission - User setAdmin - User removeAdmin
-This means you will have two types of permissions, someone who is a user, and someone who is a user and an admin. We want the ability to also remove the admin permission from a user.
-
-4. Project - Project #new - Project #show - Project #edit - Project #destroy
-Similar to the real Basecamp, users should be able to create, edit, and destroy a project.
-
-Example:
-
-![image](https://github.com/bahtibek-an/Full-Stack-My-Basecamp-1/assets/57597976/2f3fbd37-b3cb-4156-981a-8f30237c7f6a)
+## Usage
+- **Client:**
+    ```bash
+    npm start
+    ```
+- **Server:**
+    ```bash
+    npm run test
+    ```
+### The Core Team
+This project was developed by  a team of dedicated individuals at [Qwasar SV -- Software Engineering School](https://qwasar.io). Meet the team behind Basecamp:
+- **Behruz Akbaraliev:** Project Lead / Full Stack Developer
+- **Asadbek Baxodirzoda:** Frontend Developer 
+- **Behruz Akbaraliev 2:** Backend Developer
+We express our gratitude to the entire team for their hard work and commitment to making Basecamp a success.
+<span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
+<span><img alt='Qwasar SV -- Software Engineering School's Logo' src='https://storage.googleapis.com/qwasar-public/qwasar-logo_50x50.png' width='20px' /></span>

@@ -1,0 +1,6 @@
+.user_profile_wrape{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-content: center;
+}

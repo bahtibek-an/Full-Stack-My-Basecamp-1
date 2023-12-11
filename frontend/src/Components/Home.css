@@ -1,0 +1,129 @@
+/* .home-wrape{
+
+} */
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 30px;
+}
+
+.link{
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+}
+
+.header_actions{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.block{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    /* gap: 10px; */
+}
+
+.block span {
+    margin-bottom: 2px;
+}
+
+.posts_wrape{
+    display: flex;
+    align-items: start;
+    height: 500px;
+    gap: 30px;
+    flex-direction: column;
+    padding: 15px;
+    padding-top: 40px;
+}
+.posts_wrape h2 {
+    margin: 0 auto;
+}
+.posts{
+    display: flex;
+    gap: 30px;
+}
+
+.post{
+    width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+.post_headers{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #181313;
+    border-radius: 5px 5px 0px 0px;
+    padding-bottom: 20px;
+}
+.post_headers b {
+    color: #fff;
+    margin-left: 10px;
+    font-size: 14px;
+}
+.icon{
+    color: #fff;
+    margin-top: 10px;
+}
+.icon_delete{
+    /* margin-right: 10px; */
+    margin-top: 10px;
+    color: #fff;
+}
+
+.post_info{
+    padding: 10px;
+}
+
+.post_bottom{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-bottom:5px ;
+    height: 50px;
+    background-color: #000;
+    border-radius: 0px 0px 5px 5px;
+}
+.post_header_acions{
+    display: flex;
+    gap: 10px;
+}
+
+.delete_btn{
+    background-color: red;
+    padding: 7px;
+    border: none;
+    border-radius: 9px;
+    color: #fff;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.filter_btns{
+    width: 300px;
+    background-color: #000;
+    color: #fff;
+    padding: 7px;
+    border-radius: 6px;
+    border: none;
+    margin-left: 10px;
+}
+
+.b-bottom{
+    color: #fff;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}

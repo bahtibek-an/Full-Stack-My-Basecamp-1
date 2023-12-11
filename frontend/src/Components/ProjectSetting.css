@@ -1,0 +1,109 @@
+.back_btn{
+    border: none;
+    background-color: red;
+    outline: none;
+    width: 120px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+.settings_wrape{
+    display: flex;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 50px;
+    justify-content: center;
+}
+.settings_block{
+    width: 100%;
+}
+.post_info_block{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    width: 100%;
+    padding: 30px;
+    position: relative;
+}
+.edit_post_block{
+    padding-top: 30px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.form-input{
+    width: 300px;
+    padding: 7px;
+    outline: none;
+    border: 2px solid gray;
+    border-radius: 6px;
+}
+.save_btn{
+    width: 100px;
+    margin-top: 17px;
+    padding: 7px;
+    background-color: rgb(247, 169, 24);
+    border-radius:7px ;
+    outline: none;
+    border: none;
+}
+.members_view_block{
+    width: 100%;
+    padding-top: 30px;
+    height: 300px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 6px;
+}
+.add_member_block{
+    padding-bottom: 30px;
+    padding-top: 10px;
+}
+.user_block{
+    width: 400px;
+    display: flex;
+    border-radius: 7px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 7px;
+}
+.admin_status{
+    margin-left: 30px;
+    background-color: yellow;
+    padding: 1px;
+    border-radius: 6px;
+}
+.status_icon{
+    font-size: 10px;
+    margin-left: 10px;
+    color: red;
+}
+
+.unsetadmin{
+    background-color: red;
+    color: #fff;
+    width: 80px;
+    border-radius: 10px;
+    margin-left: 30px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+.success_message{
+    color: rgb(14, 236, 14);
+}
+.errorr_message{
+    color: red;
+}
+.disabled{
+    display: none;
+}
