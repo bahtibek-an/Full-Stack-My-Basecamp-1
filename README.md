@@ -1,6 +1,7 @@
 # Welcome to My Basecamp 1
 Basecamp is a web application for project management, providing convenient tools for teamwork, message exchange, and task management.
-Link ----> https://wondrous-klepon-c6ace6.netlify.app
+Demo : https://wondrous-klepon-c6ace6.netlify.app
+Admin : admin@gmail.com - admin123
 ## Task
 The primary goal of Basecamp is to provide a user-friendly web application for effective project management, fostering collaboration among team members. The challenges faced in developing Basecamp include:
 ## Description
