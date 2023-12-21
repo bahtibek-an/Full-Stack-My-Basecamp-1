@@ -26,7 +26,7 @@ function ProjectSetting() {
 
     useEffect(() => {
         axios
-        .get("https://basecamp-backend-production.up.railway.app/auth/me",{headers})
+        .get("https://basecamp-backend-b.onrender.com/auth/me",{headers})
         .then((res) => {
             setUser(res.data);
             console.log(res);
@@ -37,7 +37,7 @@ function ProjectSetting() {
     
     useEffect(() => {
         axios
-            .get(`https://basecamp-backend-production.up.railway.app/post/members/${token.id}`, { headers })
+            .get(`https://basecamp-backend-b.onrender.com/post/members/${token.id}`, { headers })
             .then((res) => {
                 console.log("members", res);
                 setMembers(res.data)
@@ -49,7 +49,7 @@ function ProjectSetting() {
 
     useEffect(() => {
         axios
-            .get(`https://basecamp-backend-production.up.railway.app/post/getOne/${token.id}`, { headers })
+            .get(`https://basecamp-backend-b.onrender.com/post/getOne/${token.id}`, { headers })
             .then((res) => {
                 console.log("post", res);
                 setPost([res.data]);
@@ -63,7 +63,7 @@ function ProjectSetting() {
 
     useEffect(() => {
         axios
-            .get(`https://basecamp-backend-production.up.railway.app/post/GetALLMessages/${token.id}`, { headers })
+            .get(`https://basecamp-backend-b.onrender.com/post/GetALLMessages/${token.id}`, { headers })
             .then((res) => {
                 console.log("messages", res);
             }).catch((e) => {
@@ -76,7 +76,7 @@ function ProjectSetting() {
     }
     const editPost = () => {
         axios
-        .patch(`https://basecamp-backend-production.up.railway.app/post/edit/${id}`,{
+        .patch(`https://basecamp-backend-b.onrender.com/post/edit/${id}`,{
             title:title,
             description:description
         },{headers})
@@ -89,7 +89,7 @@ function ProjectSetting() {
     }
     const hadnleAddMember = (id) => {
         axios
-            .post(`https://basecamp-backend-production.up.railway.app/post/addMember/${id[0]}`, {
+            .post(`https://basecamp-backend-b.onrender.com/post/addMember/${id[0]}`, {
                 email: email
             }, { headers })
             .then((res) => {
@@ -104,7 +104,7 @@ function ProjectSetting() {
 
     const deleteMember = (_id) => {
         axios
-            .post(`https://basecamp-backend-production.up.railway.app/post/deleteMember/${id}/${_id}`, {}, { headers })
+            .post(`https://basecamp-backend-b.onrender.com/post/deleteMember/${id}/${_id}`, {}, { headers })
             .then((res) => {
                 console.log("deleted account!", res);
                 window.location.reload();
@@ -117,7 +117,7 @@ function ProjectSetting() {
         console.log("member id", memberId);
         
         axios
-            .post(`https://basecamp-backend-production.up.railway.app/post/unSetAdmin/${id}/${_id}/${memberId}`, {}, { headers })
+            .post(`https://basecamp-backend-b.onrender.com/post/unSetAdmin/${id}/${_id}/${memberId}`, {}, { headers })
             .then((res) => {
                 console.log("unset!", res);
                 window.location.reload();
@@ -130,7 +130,7 @@ function ProjectSetting() {
     const SetAdmin = (_id) => {
         console.log("member set id ",memberId);
         axios
-            .post(`https://basecamp-backend-production.up.railway.app/post/SetAdmin/${id}/${_id}/${memberId}`, {}, { headers })
+            .post(`https://basecamp-backend-b.onrender.com/post/SetAdmin/${id}/${_id}/${memberId}`, {}, { headers })
             .then((res) => {
                 console.log("set!", res);
                 window.location.reload();

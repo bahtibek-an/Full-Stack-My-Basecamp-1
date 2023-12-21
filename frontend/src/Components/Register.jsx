@@ -13,7 +13,7 @@ function Register() {
    const next = () => {
     try {
         axios
-        .post("https://basecamp-backend-production.up.railway.app/auth/register",{
+        .post("https://basecamp-backend-b.onrender.com/auth/register",{
             name:name,
             email:email,
             password:password,

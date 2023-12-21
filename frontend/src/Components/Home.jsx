@@ -16,14 +16,14 @@ function Home() {
     const [members, setMembers] = useState([]);
     const [membersByPostId, setMembersByPostId] = useState({});
     const [post, setPost] = useState([]);
-    const [loading,setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     const headers = {
         Authorization: token.token
     }
     useEffect(() => {
         axios
-            .get("https://basecamp-backend-production.up.railway.app/auth/me", { headers })
+            .get("https://basecamp-backend-b.onrender.com/auth/me", { headers })
             .then((res) => {
                 console.log(res);
                 setUser(res.data)
@@ -34,11 +34,12 @@ function Home() {
     }, [postUserId])
     useEffect(() => {
         axios
-            .get("https://basecamp-backend-production.up.railway.app/posts", { headers })
+            .get("https://basecamp-backend-b.onrender.com/posts", { headers })
             .then((res) => {
                 console.log("POSTS", res);
                 setPosts(res.data);
                 setLoading(false)
+                setMembers([res.data.members])
                 setMembers(res.data.map((i) => i.members))
                 setpostUserId(res.data.map((i) => i._id));
             })
@@ -46,18 +47,6 @@ function Home() {
                 console.log(e);
             });
     }, [token]);
-    // useEffect(() => {
-    //     axios
-    //     .get(`https://basecamp-backend-production.up.railway.app/post/members/${postUserId}`,{headers})
-    //     .then((res) => {
-    //         console.log("mmm",res);
-    //     }).catch((e) => {
-    //         console.log(e);
-    //     })
-    // },[])
-    // console.log("postid" ,postUserId);
-    // console.log("members",members.flatMap((i) => i));
-
     const logout = () => {
         navigate('/login')
     }
@@ -72,7 +61,7 @@ function Home() {
     }
     const deletePost = (id) => {
         axios
-            .post(`https://basecamp-backend-production.up.railway.app/post/delete/${id}`, {}, { headers })
+            .post(`https://basecamp-backend-b.onrender.com/post/delete/${id}`, {}, { headers })
             .then((res) => {
                 window.location.reload();
                 setLoading(false)
@@ -80,19 +69,6 @@ function Home() {
                 alert(e.response.data.message);
             })
     }
-    const mId = members.flatMap((i) => i).join(',');
-        console.log("ss",user._id);
-            const postsWithUser = posts.filter((post) =>
-                post.members.find((i) => i === mId)
-            );
-        console.log("Posts with User", postsWithUser)
-    const postGLobalFilter = useCallback(() => {
-        window.location.reload();
-    },[posts])
-    const postMyProjectsFilter = useCallback(() => {
-        const filteredPosts =  posts.filter((i) =>  i.user._id === user._id);
-        setPosts(filteredPosts)
-    },[posts,user])
     return (
         <div className='home-wrape'>
             <header>
@@ -113,67 +89,61 @@ function Home() {
             </header>
             <div className="posts_wrape">
                 <h2>Projects</h2>
-                <button className='filter_btns' onClick={postGLobalFilter}>Global projects</button>
-                <button className='filter_btns' onClick={postMyProjectsFilter}>Your projects</button>
+                {/* <button className='filter_btns' onClick={postGLobalFilter}>Global projects</button>
+                <button className='filter_btns' onClick={postMyProjectsFilter}>Your projects</button> */}
                 <div className="posts">
-                    
+
                     {
                         loading === true ? <h1>Loading...</h1> :
-                        posts
-                        .filter((i) => i.user._id === user._id) 
-                            .map((item) => {
-                                return (
-                                    <>
-                                        <div className="post">
-                                            <div className="post_headers">
-                                                <div className="post_owner">
-                                                    <b>{item.user.email}</b>
-                                                </div>
-                                                <div className="post_header_acions">
-                                                    <SettingsIcon className='icon' onClick={() => projectSetting(item._id)} />
-                                                    <DeleteIcon onClick={() => deletePost(item._id)} className='icon_delete' />
-                                                </div>
+                            posts
+                                .filter((i) => i.user._id === user._id)
+                                .map((item) => (
+
+                                    <div className="post">
+                                        <div className="post_headers">
+                                            <div className="post_owner">
+                                                <b>{item.user.email}</b>
                                             </div>
-                                            <div className="post_info">
-                                                <b>{item.title}</b>
-                                                <p>{item.description}</p>
-                                            </div>
-                                            <div className="post_bottom">
+                                            <div className="post_header_acions">
+                                                <SettingsIcon className='icon' onClick={() => projectSetting(item._id)} />
+                                                <DeleteIcon onClick={() => deletePost(item._id)} className='icon_delete' />
                                             </div>
                                         </div>
-                                    </>
-                                )
-                            })
+                                        <div className="post_info">
+                                            <b>{item.title}</b>
+                                            <p>{item.description}</p>
+                                        </div>
+                                        <div className="post_bottom">
+                                        </div>
+                                    </div>
+                                ))
 
                     }
-                    {                       
-                                                loading === true ? <h1>Loading...</h1> :
-                                                postsWithUser.filter((i) => i.user._id !== user._id)
-                                                
-                                                    .map((item) => {
-                                                        return (
-                                                            <>
-                                                                <div className="post">
-                                                                    <div className="post_headers">
-                                                                        <div className="post_owner">
-                                                                            <b>{item.user.email}</b>
-                                                                        </div>
-                                                                        <div className="post_header_acions">
-                                                                            <SettingsIcon className='icon' onClick={() => projectSetting(item._id)} />
-                                                                            <DeleteIcon onClick={() => deletePost(item._id)} className='icon_delete' />
-                                                                        </div>
-                                                                    </div>
-                                                                    <div className="post_info">
-                                                                        <b>{item.title}</b>
-                                                                        <p>{item.description}</p>
-                                                                    </div>
-                                                                    <div className="post_bottom">
-                                                                        <b className='b-bottom'>You are member</b>
-                                                                    </div>
-                                                                </div>
-                                                            </>
-                                                        )
-                                                    })
+                    {
+                        loading === true ? <h1>Loading...</h1> :
+                            posts.filter((i) => i.members && i.members.some(member => member.user.name === user.name))
+                                .map((item) => (
+
+                                    <div className="post">
+                                        <div className="post_headers">
+                                            <div className="post_owner">
+                                                <b>{item.user.email}</b>
+                                            </div>
+                                            <div className="post_header_acions">
+                                                <SettingsIcon className='icon' onClick={() => projectSetting(item._id)} />
+                                                <DeleteIcon onClick={() => deletePost(item._id)} className='icon_delete' />
+                                            </div>
+                                        </div>
+                                        <div className="post_info">
+                                            <b>{item.title}</b>
+                                            <p>{item.description}</p>
+                                        </div>
+                                        <div className="post_bottom">
+                                            <b className='b-bottom'>You are member</b>
+                                            {user.isAdmin === true ? <b className='b-bottom'>You are admin</b>  : null}
+                                        </div>
+                                    </div>
+                                ))
                     }
                 </div>
             </div>

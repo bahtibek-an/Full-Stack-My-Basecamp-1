@@ -14,7 +14,7 @@ function Create() {
     const save = () => {
         try {
             axios
-            .post("https://basecamp-backend-production.up.railway.app/post/create",{
+            .post("https://basecamp-backend-b.onrender.com/post/create",{
                 title:title,
                 description:description
             },{headers})

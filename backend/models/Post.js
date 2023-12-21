@@ -14,12 +14,14 @@ const postSchema = mongoose.Schema({
         ref:'User',
         required:true
     },
-    members:[
+    members: [
         {
-            type:mongoose.Types.ObjectId,
-            ref:'Members',
-        }
-    ],
+          user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+          },
+        },
+      ],
     messages:[
         {
             type:mongoose.Types.ObjectId,

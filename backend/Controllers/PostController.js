@@ -27,10 +27,10 @@ const getAllPosts = async (req, res) => {
     try {
         const posts = await postModel.find().populate({
             path: 'user',
-            populate: {
-                path: 'members',
-            }
-        }).exec();
+        }).populate({
+            path: 'members.user',
+        })
+        .exec();
 
         if (posts.length === 0) {
             return res.status(404).json({
@@ -73,7 +73,7 @@ const editPost = async (req,res) => {
         });
 
 
-        if(!(req.userId === "65538c47ce53d8e01ed952a7") && (post.user._id.toString() !== req.userId)){
+        if(!(req.userId === "655eee687c81360e7c734653") && (post.user._id.toString() !== req.userId)){
             return res.status(500).json({
                 message:"No access!!"
             })
@@ -105,7 +105,7 @@ const deletePost = async (req,res) => {
                 message:"Post not found!"
             })
         }
-        if(!(req.userId === "65538c47ce53d8e01ed952a7") && (post.user._id.toString() !== req.userId)){
+        if((req.userId === "655eee687c81360e7c734653") && (post.user._id.toString() !== req.userId)){
             return res.status(500).json({
                 message:"No access!!"
             })
@@ -135,7 +135,7 @@ const addMember = async(req,res) => {
             post.members = [];
         }
 
-        if(!(req.userId === "65538c47ce53d8e01ed952a7") && (post.user._id.toString() !== req.userId)){
+        if(!(req.userId === "655eee687c81360e7c734653") && (post.user._id.toString() !== req.userId)){
             return res.status(500).json({
                 message:"No access!!"
             })
@@ -184,7 +184,7 @@ const getAllMembers = async(req,res) => {
             })
         }
 
-        if(!(req.userId === "65538c47ce53d8e01ed952a7") && (post.user._id.toString() !== req.userId)){
+        if(!(req.userId === "655eee687c81360e7c734653") && (post.user._id.toString() !== req.userId)){
             return res.status(500).json({
                 message:"No access!!"
             })
@@ -221,7 +221,7 @@ const deleteMember = async(req,res) => {
             })
         }
 
-        if(!(req.userId === "65538c47ce53d8e01ed952a7") && (post.user._id.toString() !== req.userId)){
+        if(!(req.userId === "655eee687c81360e7c734653") && (post.user._id.toString() !== req.userId)){
             return res.status(500).json({
                 message:"No access!!"
             })
@@ -277,7 +277,7 @@ const setAdmin = async (req, res) => {
             });
         }
 
-        if (!(req.userId === "65538c47ce53d8e01ed952a7") && (post.user._id.toString() !== req.userId)) {
+        if (!(req.userId === "655eee687c81360e7c734653") && (post.user._id.toString() !== req.userId)) {
             return res.status(500).json({
                 message: "No access!!"
             });
@@ -329,7 +329,7 @@ const unsetAdmin = async(req,res)=> {
             });
         }
 
-        if (!(req.userId === "65538c47ce53d8e01ed952a7") && (post.user._id.toString() !== req.userId)) {
+        if (!(req.userId === "655eee687c81360e7c734653") && (post.user._id.toString() !== req.userId)) {
             return res.status(500).json({
                 message: "No access!!"
             });

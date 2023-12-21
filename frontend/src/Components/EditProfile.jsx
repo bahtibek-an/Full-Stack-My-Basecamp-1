@@ -15,7 +15,7 @@ function EditProfile() {
     }
     useEffect(() => {
         axios
-        .get("https://basecamp-backend-production.up.railway.app/auth/me",{headers})
+        .get("https://basecamp-backend-b.onrender.com/auth/me",{headers})
         .then((res) => {
           setName(res.data.name)
           setEmail(res.data.email)
@@ -27,7 +27,7 @@ function EditProfile() {
     const save = () => {
       try {
           axios
-          .patch("https://basecamp-backend-production.up.railway.app/user/edit",{
+          .patch("https://basecamp-backend-b.onrender.com/user/edit",{
             name:name,
             email:email
           },{headers})
@@ -48,7 +48,7 @@ function EditProfile() {
     }
     const deleteAccount = () => {
       axios
-      .post("https://basecamp-backend-production.up.railway.app/user/delete",{}, {headers})
+      .post("https://basecamp-backend-b.onrender.com/user/delete",{}, {headers})
       .then((res) => {
         alert("Successful deleted account!")
         navigate('/')
