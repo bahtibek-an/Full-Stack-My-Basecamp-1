@@ -1,33 +1,42 @@
-# Full-Stack My Basecamp 1
-## MyBasecamp1
-What is basecamp?
-It's a web-based project management tool launched in 2004. Its primary features are to-do lists, milestone management, forum-like messaging, file sharing, and time tracking - [basecamp](https://basecamp.com/)
+## Description
+-What is The Basecamp?
+-It's a web-based project management tool launched in 2004. Its primary features are to-do lists, milestone management, forum-like messaging, file sharing, and time tracking - [basecamp](https://basecamp.com/)
+-I am try to clone a tool, and I believe it looks similar to 'orign'
+-I used Express.js and Ejs for cloning , and for database , I used MySQL
 
-You will have a to create a website which mimique features from the original tools. It means having a database, a backend and a frontend.
-This project is splitted in 3 parts.
+## Task 
+-This web site's features like similar to basecamp. I project is splited in 3 parts 
+-Database -> MySQL
+-Frontend -> Ejs
+-backend  -> Express.js
 
-We want our users to create their accounts, to connect and create projects!
+-there were used dependencies 
+    express,
+    mysql2,
+    nodemon for starting express port ,
+    ejs,
+    body-parser,
+    multer for uploading zip folders,
+    path 
 
-As developer you need to think about the User Experience and it needs to be great.
+## Installation
+-For starting web site. You need to install edendencies
+  1 - npm install
+  2 - npm start
 
-Here is the technical specifications:
+## Getting Started
+--Fill-Stack-My-Basecamp-1
+|__node_models
+|_uploads
+|_views
+  |_deleteUser.ejs
+  |_home.ejs
+  |_index.ejs
+  |_login.ejs
+  |_signup.ejs
+|_express.js
+|_package-lock.json
+|_package.json
+|_README.md
+    
 
-First step of MyBaseCamp should have the following features:
-
-### Features:
-
-1. User Registration - User #new - User #show - User #create - User #destroy
-In summary, you should be able to create a new user, delete a user, and as a new user, create an account yourself.
-
-2. Session - User #sign_in - User #sign_out
-Users should be able to log in and log out.
-
-3. Role Permission - User setAdmin - User removeAdmin
-This means you will have two types of permissions, someone who is a user, and someone who is a user and an admin. We want the ability to also remove the admin permission from a user.
-
-4. Project - Project #new - Project #show - Project #edit - Project #destroy
-Similar to the real Basecamp, users should be able to create, edit, and destroy a project.
-
-Example:
-
-![image](https://github.com/bahtibek-an/Full-Stack-My-Basecamp-1/assets/57597976/2f3fbd37-b3cb-4156-981a-8f30237c7f6a)
