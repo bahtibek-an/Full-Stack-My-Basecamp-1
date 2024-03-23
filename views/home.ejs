@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.css" /> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        span {
+            color: red;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+            font-family: "Roboto";
+        }
+
+        .h1-title span {
+            font-weight: 400;
+            font-family: "Roboto";
+            color: #706F6F;
+            line-height: 15px;
+            font-size: 18px;
+        }
+
+        .h1-title {
+            font-weight: 700;
+            font-family: "Roboto";
+        }
+
+        .nav-title span {
+            font-weight: 500;
+            font-family: "Roboto";
+            font-style: 30px;
+            line-height: 20px;
+            margin-left: 10px;
+        }
+
+        body {
+            background: #ebe6e6d4;
+        }
+
+        ul {
+            list-style: none;
+            background: #ffff;
+            border: 1px solid transparent;
+            border-radius: 15px;
+            height: 450px;
+        }
+
+        li a {
+            margin: 12px;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <% if (success==='true' ) { %>
+        <script>
+            setTimeout(function () {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        </script>
+        <div id="successMessage" class="alert alert-success" role="alert">
+            File uploaded successfully!
+        </div>
+        <% } %>
+
+            <div class="container">
+                <div class="d-flex justify-content-between my-3">
+                    <h1 class="weight-300 nav-title">hello <span>
+                            <%= username %>👋
+                        </span></h1>
+                    <div>
+                        <button class="btn btn-primary"><a href="/newProject"><i
+                                    class="fa-solid fa-plus"></i></a></button>
+                        <button class="btn btn-warning"><a href="/logout">Log out</a></button>
+                        <button class="btn btn-danger"><a href="/delete">delete account</a></button>
+                    </div>
+                </div>
+                <main>
+                    <div class="my-3 d-flex align-items-center gap-3">
+                        <% if (projects.length === 0) { %>
+                            <h2 class="text-center">No projects yet</h2>
+                        <% } else { %>
+                            <% projects.forEach(project => { %>
+                                <% if (username === project.user) { %>
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="card my-1">
+                                            <div class="cart-header rounded p-2 bg-secondary text-light">
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <%= project.name %>
+                                                    <a class="text-decoration-none text-light" href="/setting/projectSetting/<%= project.id %>">
+                                                        <i class="fa-solid fa-gear"></i>
+                                                    </a>
+                                                </div>
+                                                <i class="fa-solid fa-user"></i>
+                                                <%= project.user %>
+                                            </div>
+                                            <div class="card-body">
+                                                <p><%= project.description %></p>
+                                            </div>
+                                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                                <a class="btn btn-warning" href="/comments/<%= project.id %>">
+                                                    <i class="fa-solid fa-comment"></i>
+                                                </a>
+                                                <a class="btn btn-danger delete" href="/delete/project/<%= project.id %>">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            <% }); %>
+                        <% } %>                        
+                        </div>
+                </main>
+            </div>
+</body>
+
+</html>
